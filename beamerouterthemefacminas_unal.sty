@@ -1,0 +1,23 @@
+\mode<presentation>
+
+%Frame count - \hspace{0.1cm} (\insertframenumber/\inserttotalframenumber)
+
+% Frame title
+\defbeamertemplate*{frametitle}{facminas_unal}[1][]
+{
+\vskip 0.0cm%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.8cm]{frametitle} 
+  \begin{tikzpicture}
+  \useasboundingbox(0,0) rectangle(\the\paperwidth,1.8);
+  \fill[white] (2,0) rectangle(\the\paperwidth,1.9);
+   \ifx\insertframesubtitle\@empty%
+      { \node[anchor=west,black,font=\Large] at (2.0,0.915){\parbox{\linewidth}{\insertframetitle }};}
+      \else%
+      {\node[anchor= west,black,font=\Large] at (2.0,1.215){\parbox{\linewidth}{\insertframetitle }};%
+       \node[anchor= west,black,font=\small] at (2.0,0.615){\parbox{\linewidth}{\insertframesubtitle}};}%
+      \fi
+  \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+\mode<all>

@@ -1,0 +1,43 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\RequirePackage{mwe}
+\RequirePackage{multicol}
+
+% Settings
+\useinnertheme{facminas_unal}
+\useoutertheme{facminas_unal}
+\usecolortheme{facminas_unal}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]  
+
+%Custom Frames
+
+%Show a centered text as a transition to a new section
+\newcommand{\sectiontitle}[1]
+{
+	\vspace*{\fill}
+	\begin{center}\begin{Huge} {\color{orange}{\textbf{\textit{#1}}}} \end{Huge}\end{center}
+}
+
+\newcommand{\captiontext}[1]
+{
+	\begin{Large} {\color{lightorange}{\textbf{#1}}} \end{Large}
+}
+
+\newcommand{\twocolumnsblock}[2]
+{
+	\begin{multicols}{2}
+  		
+  		#1
+
+		\columnbreak
+		
+		#2		
+  		
+  	\end{multicols}
+}
+
+\mode<all>
