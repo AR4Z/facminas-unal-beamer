@@ -5,19 +5,40 @@
 % Frame title
 \defbeamertemplate*{frametitle}{facminas_unal}[1][]
 {
-\vskip 0.0cm%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=1.8cm]{frametitle} 
+\linespread{0.5}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.3cm]{frametitle} 
   \begin{tikzpicture}
-  \useasboundingbox(0,0) rectangle(\the\paperwidth,1.8);
-  \fill[white] (2,0) rectangle(\the\paperwidth,1.9);
    \ifx\insertframesubtitle\@empty%
-      { \node[anchor=west,black,font=\Large] at (2.0,0.915){\parbox{\linewidth}{\insertframetitle }};}
+   	  \useasboundingbox(0,0) rectangle(\the\paperwidth,1.1);
+  	  %\fill[orange] (0,0) rectangle(\the\paperwidth,1.1);
+      { \node[anchor=west,black,font=\Large] at (0.5,0.5){\parbox{\linewidth}{\insertframetitle }};}
       \else%
-      {\node[anchor= west,black,font=\Large] at (2.0,1.215){\parbox{\linewidth}{\insertframetitle }};%
-       \node[anchor= west,black,font=\small] at (2.0,0.615){\parbox{\linewidth}{\insertframesubtitle}};}%
+      \useasboundingbox(0,0) rectangle(\the\paperwidth,1.1);
+      %\fill[orange] (0,0) rectangle(\the\paperwidth,1.1);
+      {\node[anchor= west,black,font=\Large] at (0.5,0.75){\parbox{\linewidth}{\insertframetitle }};%      
+       \node[anchor= west,black,font=\small] at (0.5, 0.3){\parbox{\linewidth}{\insertframesubtitle}};}%
       \fi
   \end{tikzpicture}
   \end{beamercolorbox}
+}
+
+\setbeamertemplate{headline}
+{
+  \leavevmode%
+  \hbox{%
+  %\begin{beamercolorbox}[wd=2cm,ht=1.3cm]{secsubsec}%
+  \begin{tikzpicture}
+  \useasboundingbox(0,\the\paperheight ) rectangle(\the\paperwidth,\the\paperheight - 0.45);
+  
+  \ifnum\thesection>0\relax%
+      \ifx\insertsubsection\@empty% 
+          { \node[anchor=west,white,font=\tiny] at (0.95,0.45){\sffamily\tiny \thesection.~\insertsection\hspace{0.1cm}};} 
+      \else
+      { \node[anchor=west,white,font=\tiny] at (0.95,0.45){\sffamily\tiny \thesection.~\insertsection\hspace{0.1cm} / \thesection.\thesubsection.~\insertsubsection};}
+      \fi
+  \fi  
+  \end{tikzpicture}
+  }%
 }
 
 \mode<all>

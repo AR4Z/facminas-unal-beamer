@@ -11,7 +11,9 @@
 \usecolortheme{facminas_unal}
 
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{blocks}[rounded][shadow=true]  
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+
+\addtolength{\headsep}{1.0cm}
 
 %Custom Frames
 
@@ -19,12 +21,13 @@
 \newcommand{\sectiontitle}[1]
 {
 	\vspace*{\fill}
-	\begin{center}\begin{Huge} {\color{orange}{\textbf{\textit{#1}}}} \end{Huge}\end{center}
+	\linespread{1.5}
+	\begin{center}\begin{Huge} {\color{bluesky}{\textbf{\textit{#1}}}} \end{Huge}\end{center}
 }
 
 \newcommand{\captiontext}[1]
 {
-	\begin{Large} {\color{lightorange}{\textbf{#1}}} \end{Large}
+	\begin{Large} {\color{bluesky}{\textbf{#1}}} \end{Large}
 }
 
 \newcommand{\twocolumnsblock}[2]

@@ -11,11 +11,11 @@
 \usepackage{graphicx}
 
 % these will be used later in the title page
-\title{A 5-Minute Tour of Beamer's Simplest Features}
-\subtitle{Orignal source code taken from \footnote{http://heather.cs.ucdavis.edu/~matloff/beamer.html}}
-\author{Norm Matloff \\
+\title{A 5-Minute Tour of Beamer's Simplest Features A 5-Minute Tour of Beamer's Simplest Features A 5-Minute Tour of Beamer's Simplest Features}
+\subtitle{Orignal source code taken from  http://heather.cs.ucdavis.edu/~matloff/beamer.html}
+\author{\small Norm Matloff \\
     Dept. of Computer Science \\
-    University of California, Davis 
+    University of California, Davis \\
 }
 \date{July 17, 2005}
 
@@ -33,7 +33,6 @@
 
 \begin{document}
 
-
 % this prints title, author etc. info from above
 \begin{frame}
 \titlepage
@@ -42,14 +41,20 @@
 \section{A Question from Grade School}
 
 \begin{frame}
+\sectiontitle{A Question from Grade School}
+\end{frame}
+
+\begin{frame}
 \frametitle{A Question from Grade School}
+\framesubtitle{A very important question}
 
 (Illustrating {\sc beamer}'s $\backslash$pause command.)
-\vskip 0.5in
+\vskip 0.3in
 
 A couple of years ago, a fifth-grade teacher asked me to explain to her
 the reasoning behind the ``invert and multiply'' rule for dividing
 fractions, e.g.
+
 \pause  % makes overlay
 
 $$
@@ -129,10 +134,14 @@ $$
 \section{A Geometry Proof}
 
 \begin{frame}
+\sectiontitle{A Geometry Proof}
+\end{frame}
+
+\begin{frame}
 \frametitle{A Geometry Proof}
 
 (Illustrating {\sc beamer}'s $\backslash$uncover command.)
-\vskip 0.5in
+\vskip 0.3in
 
 \begin{theorem}
 The angles in a triangle sum to $180^{\circ}$.
@@ -167,6 +176,10 @@ from Steps 1 and 2.} \\
 \end{frame}
 
 \section{More Advanced Features of {\sc beamer}}
+
+\begin{frame}
+\sectiontitle{More Advanced Features of {\sc beamer}}
+\end{frame}
 
 \begin{frame}
 \frametitle{More Advanced Features of {\sc beamer}} 

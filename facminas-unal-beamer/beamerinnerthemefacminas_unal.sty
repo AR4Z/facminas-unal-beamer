@@ -12,32 +12,41 @@
 
 \setbeamertemplate{footline}{
 	\begin{tikzpicture}
-  	\useasboundingbox (0,0) rectangle(\the\paperwidth,0.7cm);
-  	\put(300,0){\includegraphics[width=2cm,keepaspectratio]{logo_unal.png}}
+  	\useasboundingbox (0,0) rectangle(\the\paperwidth,2.0);
+  	%\put(300,0){\includegraphics[width=2cm,keepaspectratio]{logo_unal.png}}
   	\end{tikzpicture}
 }
 
 %Sets the left margin for the presentation
-\setbeamersize{text margin left=6em,text margin right=1em}
+\setbeamersize{text margin left=1.5em,text margin right=1.5em}
 
 % Title page
 \defbeamertemplate*{title page}{facminas_unal}[1][]
 { 
-   \vskip1cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,sep=8pt,#1]{title page header}
-      \usebeamerfont{title}\inserttitle\par%
+   %\vskip0cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=1cm,#1]{title page header}
+      \usebeamerfont{title}
+      \begin{center}
+      \inserttitle
+      \end{center}      
     \end{beamercolorbox}%
-	\vskip0.1cm%
-	\begin{beamercolorbox}[wd=12cm,leftskip=3cm,sep=8pt,#1]{subtitle page header}
-		\usebeamerfont{subtitle}\insertsubtitle\par%
+	%\vskip0.1cm%
+	\begin{beamercolorbox}[wd=12cm,leftskip=1cm,#1]{subtitle page header}
+		\begin{center}
+		\usebeamerfont{subtitle}\insertsubtitle
+		\end{center}
 	\end{beamercolorbox}%
-    \vskip0.5cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{author}
+    %\vskip0.5cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=1cm,#1]{author}
+    \begin{center}
       \usebeamerfont{author}\insertauthor%
+     \end{center}
     \end{beamercolorbox}
-     \vskip0.2cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
-      \usebeamerfont{author}\insertdate%
+     %\vskip0.2cm%
+    \begin{beamercolorbox}[ht=0.5cm,wd=12cm,leftskip=1cm,#1]{date}
+    	\begin{center}
+      \usebeamerfont{date}\small \insertdate%
+    \end{center}
     \end{beamercolorbox}
   \vfill
 }
