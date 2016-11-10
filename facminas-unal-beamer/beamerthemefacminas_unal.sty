@@ -4,6 +4,7 @@
 \RequirePackage{tikz}
 \RequirePackage{mwe}
 \RequirePackage{multicol}
+\RequirePackage{ragged2e}
 
 % Settings
 \useinnertheme{facminas_unal}
@@ -16,6 +17,44 @@
 \addtolength{\headsep}{1.0cm}
 
 %Custom Frames
+
+%Shows the cover slide
+\newcommand{\coverslide}
+{
+    % all template changes are local to this group.
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{cover_background.png}
+            };
+        \end{tikzpicture}
+     \end{frame}
+}
+
+%Shows the information slide
+\newcommand{\informationslide}[4]
+{
+	\linespread{0.5}
+    % all template changes are local to this group.
+    %\setbeamertemplate{navigation symbols}{}
+    %\setbeamertemplate{background}{}
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+        		\node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{white_background.png}
+            };
+            \node[at=(current page.center)] {
+                \includegraphics[width=\paperwidth]{center_logo.png}
+            };
+            {\node[anchor=west,darkgray,font=\footnotesize,text width=11.5cm] at (0.35,-1.9){\parbox{\linewidth}{\RaggedLeft \textit{\textbf{#1}}}};}
+            {\node[anchor=west,darkgray,font=\footnotesize,text width=11.5cm] at (0.35,-2.3){\parbox{\linewidth}{\RaggedLeft \textit{\textbf{#2}}}};}
+            {\node[anchor=west,darkgray,font=\scriptsize,text width=11.5cm] at (0.35,-3.2){\parbox{\linewidth}{\RaggedLeft \textit{#3}}};}
+            {\node[anchor=west,darkgray,font=\footnotesize,text width=11.5cm] at (0.35,-4.3){\parbox{\linewidth}{\RaggedLeft \textit{\textbf{#4 \\ minas.medellin.unal.edu.co}}}};}
+        \end{tikzpicture}
+        
+     \end{frame}
+}
 
 %Show a centered text as a transition to a new section
 \newcommand{\sectiontitle}[1]
