@@ -5,28 +5,29 @@
 \RequirePackage{mwe}
 \RequirePackage{multicol}
 \RequirePackage{ragged2e}
+\RequirePackage{environ}
 
 % Settings
 \useinnertheme{facminas_unal}
 \useoutertheme{facminas_unal}
 \usecolortheme{facminas_unal}
-
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{blocks}[rounded][shadow=true] 
-
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\newlength{\DefaultTextColumnWidth}
+\newlength{\TextColumnWidth}
+\addtolength{\columnsep}{0.1cm}
 \addtolength{\headsep}{1.0cm}
 
-%Custom Frames
-
+% CUSTOME FRAMES
 %Shows the cover slide
 \newcommand{\coverslide}
 {
     % all template changes are local to this group.
     \setbeamertemplate{navigation symbols}{}
-    \begin{frame}[plain]
+    \begin{frame}[plain,noframenumbering]
         \begin{tikzpicture}[remember picture,overlay]
             \node[at=(current page.center)] {
-                \includegraphics[width=\paperwidth]{cover_background.png}
+                \includegraphics[width=\paperwidth,height=\paperheight]{cover_background.png}
             };
         \end{tikzpicture}
      \end{frame}
@@ -39,10 +40,10 @@
     % all template changes are local to this group.
     %\setbeamertemplate{navigation symbols}{}
     %\setbeamertemplate{background}{}
-    \begin{frame}[plain]
+    \begin{frame}[plain,noframenumbering]
         \begin{tikzpicture}[remember picture,overlay]
         		\node[at=(current page.center)] {
-                \includegraphics[width=\paperwidth]{white_background.png}
+                \includegraphics[width=\paperwidth,height=\paperheight]{white_background.png}
             };
             \node[at=(current page.center)] {
                 \includegraphics[width=\paperwidth]{center_logo.png}
@@ -80,6 +81,51 @@
 		#2		
   		
   	\end{multicols}
+}
+
+%Image Frame with image in one column and text on the other
+% 
+% parameters:
+%     image:      image filename
+%     width:      width of the image column (optional)
+%     imageAlign: Whether the image goes on left or right
+%
+\define@key{ImageFrame}{width}{\def\ImageColumnWidth{#1}}
+\define@key{ImageFrame}{image}{\def\image{#1}}
+\define@key{ImageFrame}{imageAlign}{\def\imageAlign{#1}}
+\def\rightImage{right}
+\NewEnviron{ImageFrame}[1][]{%
+	
+	\setlength{\DefaultTextColumnWidth}{\dimexpr(\paperwidth - 3\columnsep)/2\relax}
+	\setkeys{ImageFrame}{imageAlign=left,width=\DefaultTextColumnWidth,#1}
+	\setlength{\TextColumnWidth}{\dimexpr(\paperwidth - \ImageColumnWidth - 3\columnsep)\relax}
+	\begin{frame}
+		\begin{columns}
+			\ifx\imageAlign \rightImage {
+				\begin{column}{\TextColumnWidth}
+					\BODY		
+				\end{column}
+				
+				\begin{column}{\columnsep}
+				\end{column}
+				
+				\begin{column}{\ImageColumnWidth}
+					\includegraphics[width=\ImageColumnWidth]{\image}
+				\end{column}
+			}\else{
+				\begin{column}{\ImageColumnWidth}
+					\includegraphics[width=\ImageColumnWidth]{\image}
+				\end{column}
+				
+				\begin{column}{\columnsep}
+				\end{column}
+				
+				\begin{column}{\TextColumnWidth}
+					\BODY		
+				\end{column}
+			}\fi			
+		\end{columns}
+	\end{frame}
 }
 
 \mode<all>
