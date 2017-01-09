@@ -15,7 +15,7 @@
 \setbeamertemplate{blocks}[rounded][shadow=true]
 \newlength{\DefaultTextColumnWidth}
 \newlength{\TextColumnWidth}
-\addtolength{\columnsep}{0.1cm}
+\addtolength{\columnsep}{0.05cm}
 \addtolength{\headsep}{1.0cm}
 
 % CUSTOME FRAMES
@@ -124,6 +124,26 @@
 					\BODY		
 				\end{column}
 			}\fi			
+		\end{columns}
+	\end{frame}
+}
+
+\define@key{DoubleImageFrame}{leftimage}{\def\leftimage{#1}}
+\define@key{DoubleImageFrame}{rightimage}{\def\rightimage{#1}}
+\NewEnviron{DoubleImageFrame}[1][]{%
+	\setkeys{DoubleImageFrame}{#1}
+	\begin{frame}
+		\begin{columns}			
+			\begin{column}{\ImageColumnWidth}
+				\includegraphics[width=0.49\paperwidth]{\leftimage}
+			\end{column}
+			
+			\begin{column}{0.02\paperwidth}
+			\end{column}
+			
+			\begin{column}{\ImageColumnWidth}
+				\includegraphics[width=0.49\paperwidth]{\rightimage}
+			\end{column}			
 		\end{columns}
 	\end{frame}
 }
